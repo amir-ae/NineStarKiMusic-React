@@ -1,0 +1,7 @@
+{
+  "name": "Nine Star Ki Music",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

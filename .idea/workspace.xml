@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a36dae32-d35e-443c-8a55-e4cd00964144" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1e9NnoLOeuvF6oAMqBRXiQYDre6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\Apps\nine-star-ki\src" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a36dae32-d35e-443c-8a55-e4cd00964144" name="Default Changelist" comment="" />
+      <created>1567092553021</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1567092553021</updated>
+      <workItem from="1567092554391" duration="14935000" />
+      <workItem from="1567315926710" duration="19406000" />
+      <workItem from="1567666131783" duration="1630000" />
+      <workItem from="1567959013523" duration="85000" />
+      <workItem from="1567959154670" duration="8643000" />
+      <workItem from="1593730043104" duration="3582000" />
+      <workItem from="1593770104648" duration="45448000" />
+      <workItem from="1593932320524" duration="41332000" />
+      <workItem from="1593983673454" duration="27667000" />
+      <workItem from="1594114346288" duration="28000" />
+      <workItem from="1594114419997" duration="41806000" />
+      <workItem from="1594237910712" duration="7974000" />
+      <workItem from="1594287568404" duration="4432000" />
+      <workItem from="1595307638871" duration="38095000" />
+      <workItem from="1595404386718" duration="16061000" />
+      <workItem from="1596524992226" duration="4520000" />
+      <workItem from="1605943291959" duration="30178000" />
+      <workItem from="1606336710252" duration="10863000" />
+      <workItem from="1606377900528" duration="4508000" />
+      <workItem from="1606634151813" duration="16781000" />
+      <workItem from="1606906541919" duration="7534000" />
+      <workItem from="1607935962277" duration="14119000" />
+      <workItem from="1608022612838" duration="9047000" />
+      <workItem from="1612452098066" duration="5780000" />
+      <workItem from="1613324164685" duration="11569000" />
+      <workItem from="1613486038212" duration="5242000" />
+      <workItem from="1616945646594" duration="15541000" />
+      <workItem from="1617107500157" duration="4157000" />
+      <workItem from="1617377268626" duration="13342000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1074" y="372" key="FileChooserDialogImpl" timestamp="1617390865351">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state x="1074" y="372" key="FileChooserDialogImpl/0.0.1600.900@0.0.1600.900" timestamp="1617390865351" />
+    <state x="925" y="139" key="run.anything.popup" timestamp="1617379114859">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state x="925" y="139" key="run.anything.popup/0.0.1600.900@0.0.1600.900" timestamp="1617379114859" />
+  </component>
+</project>

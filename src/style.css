@@ -1,0 +1,19 @@
+﻿.number:hover {
+    text-decoration: none;
+    cursor: default;
+    background-color: initial;
+}
+
+.occasion-header {
+    font-family: Verdana;
+}
+
+.musician-name {
+    display: block;
+    padding: 3px 10px;
+}
+
+.musician-data {
+    display: block;
+    padding: 3px 0px;
+}

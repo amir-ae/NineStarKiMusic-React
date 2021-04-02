@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.nineStarKi",
+  "appName": "Nine Star Ki Music",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}
