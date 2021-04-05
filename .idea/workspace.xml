@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a36dae32-d35e-443c-8a55-e4cd00964144" name="Default Changelist" comment="" />
+    <list default="true" id="a36dae32-d35e-443c-8a55-e4cd00964144" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Display.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +17,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1e9NnoLOeuvF6oAMqBRXiQYDre6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,6 +36,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -73,7 +81,9 @@
       <workItem from="1613486038212" duration="5242000" />
       <workItem from="1616945646594" duration="15541000" />
       <workItem from="1617107500157" duration="4157000" />
-      <workItem from="1617377268626" duration="13342000" />
+      <workItem from="1617377268626" duration="15511000" />
+      <workItem from="1617618555913" duration="9000" />
+      <workItem from="1617621494687" duration="264000" />
     </task>
     <servers />
   </component>
@@ -81,10 +91,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1074" y="372" key="FileChooserDialogImpl" timestamp="1617390865351">
+    <state x="425" y="44" key="CommitChangelistDialog2" timestamp="1617621896674">
       <screen x="0" y="0" width="1600" height="900" />
     </state>
-    <state x="1074" y="372" key="FileChooserDialogImpl/0.0.1600.900@0.0.1600.900" timestamp="1617390865351" />
+    <state x="425" y="44" key="CommitChangelistDialog2/0.0.1600.900@0.0.1600.900" timestamp="1617621896673" />
+    <state x="1074" y="372" key="FileChooserDialogImpl" timestamp="1617391408214">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state x="1074" y="372" key="FileChooserDialogImpl/0.0.1600.900@0.0.1600.900" timestamp="1617391408214" />
+    <state x="507" y="165" key="SettingsEditor" timestamp="1617391391392">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state x="507" y="165" key="SettingsEditor/0.0.1600.900@0.0.1600.900" timestamp="1617391391392" />
+    <state x="609" y="367" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617621836223">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state x="609" y="367" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.900@0.0.1600.900" timestamp="1617621836223" />
     <state x="925" y="139" key="run.anything.popup" timestamp="1617379114859">
       <screen x="0" y="0" width="1600" height="900" />
     </state>

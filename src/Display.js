@@ -14,7 +14,7 @@ export class Display extends Component {
             essential: "",
             russian: "",
             dataType: 0,
-            buttonLabel: "Recordings",
+            buttonLabel: "Записи",
             windowHeight: window.innerHeight
         };
         this.classical = React.createRef();
@@ -24,14 +24,14 @@ export class Display extends Component {
         switch (this.state.dataType)
         {
             case 0:
-                this.setState({ dataType: 1, buttonLabel: "Numbers" });
+                this.setState({ dataType: 1, buttonLabel: "Числа" });
                 break;
             case 1:
-                this.setState({ dataType: 2, buttonLabel: "Genres" });
+                this.setState({ dataType: 2, buttonLabel: "Жанры" });
                 break;
             case 2:
             default:
-                this.setState({ dataType: 0, buttonLabel: "Recordings" });
+                this.setState({ dataType: 0, buttonLabel: "Записи" });
                 break;
         }
     };
@@ -226,10 +226,6 @@ export class Display extends Component {
             showMusicians: true });
 
         this.props.showEditor(false);
-    };
-
-    handleResize = (e) => {
-        this.setState({ windowHeight: window.innerHeight });
     };
 
     dataToShow = (musician) => {
