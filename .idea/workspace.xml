@@ -28,8 +28,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../React Pro/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -83,26 +84,44 @@
       <workItem from="1617107500157" duration="4157000" />
       <workItem from="1617377268626" duration="15511000" />
       <workItem from="1617618555913" duration="9000" />
-      <workItem from="1617621494687" duration="264000" />
+      <workItem from="1617621494687" duration="713000" />
+      <workItem from="1617623745962" duration="50000" />
+      <workItem from="1620115682280" duration="359000" />
     </task>
+    <task id="LOCAL-00001" summary="Change Button Label to Russian">
+      <created>1617621984380</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617621984380</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Change Button Label to Russian" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change Button Label to Russian" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="425" y="44" key="CommitChangelistDialog2" timestamp="1617621896674">
+    <state x="425" y="44" key="CommitChangelistDialog2" timestamp="1617621983161">
       <screen x="0" y="0" width="1600" height="900" />
     </state>
-    <state x="425" y="44" key="CommitChangelistDialog2/0.0.1600.900@0.0.1600.900" timestamp="1617621896673" />
-    <state x="1074" y="372" key="FileChooserDialogImpl" timestamp="1617391408214">
+    <state x="425" y="44" key="CommitChangelistDialog2/0.0.1600.900@0.0.1600.900" timestamp="1617621983161" />
+    <state x="1074" y="372" key="FileChooserDialogImpl" timestamp="1617623788383">
       <screen x="0" y="0" width="1600" height="900" />
     </state>
-    <state x="1074" y="372" key="FileChooserDialogImpl/0.0.1600.900@0.0.1600.900" timestamp="1617391408214" />
+    <state x="1074" y="372" key="FileChooserDialogImpl/0.0.1600.900@0.0.1600.900" timestamp="1617623788383" />
     <state x="507" y="165" key="SettingsEditor" timestamp="1617391391392">
       <screen x="0" y="0" width="1600" height="900" />
     </state>
     <state x="507" y="165" key="SettingsEditor/0.0.1600.900@0.0.1600.900" timestamp="1617391391392" />
+    <state x="392" y="183" key="Vcs.Push.Dialog.v2" timestamp="1617622034996">
+      <screen x="0" y="0" width="1600" height="900" />
+    </state>
+    <state x="392" y="183" key="Vcs.Push.Dialog.v2/0.0.1600.900@0.0.1600.900" timestamp="1617622034996" />
     <state x="609" y="367" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617621836223">
       <screen x="0" y="0" width="1600" height="900" />
     </state>

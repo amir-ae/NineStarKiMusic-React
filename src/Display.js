@@ -59,98 +59,49 @@ export class Display extends Component {
             return 'n';
     };
 
-    evaluate = (r1, r2, r3, r4) => {
+    evaluate = (r1, r2, r3) => {
         let x = 0;
 
-        switch(r1) {
+        switch (r1)
+        {
             case 's':
             case 't':
                 x += 50;
                 break;
             case 'I':
             case 'i':
-				x += 35;
-				if (r3 === 'c')
-                    x += 10;
+                x += 30;
                 break;
-            case 'd':
-                x += 10;
-                break;
-            default :
+            default:
                 break;
         }
 
-        switch(r2) {
+        switch (r2)
+        {
             case 's':
             case 't':
-                x += 35;
+                x += 25;
                 break;
             case 'I':
             case 'i':
-                x += 20;
+                x += 15;
                 break;
-            case 'd':
-                x += 5;
-                break;
-            case 'c':
-                if (r1 !== 'c')
-                    x += 10;
-                break;
-            default :
-                x += 5;
+            default:
                 break;
         }
 
-        switch(r3) {
-            case 'I':
-                x += 30;
-                if ( r1 === 's')
-                    x += 5;
-                break;
-            case 'i':
-            case 't':
-                if (r1 !== 'c') {
-                    x += 10;
-                    if (r1 === 'i' || r1 === 'I')
-                        x += 5;
-                }
-                break;
+        switch (r3)
+        {
             case 's':
-                x += 30;
-                if (r2 === 'i' || r2 === 'I')
-                    x += 5;
-                if (r1 === 'd' || r1 === 'i' || r1 === 'I')
-                    x += 10;
+            case 't':
+                x += 25;
                 break;
-            case 'c':
-                if (r1 === 't' || (r2 === 't' && (r1 === "i" || r1 === "I")))
-                    x += 5;
-                break;
-            default :
-                break;
-        }
-
-        switch(r4) {
-            case 'i':
             case 'I':
-                x += 5;
-                if (r1 === 'i' || r1 === 't')
-                    x += 15;
+            case 'i':
+                x += 15;
                 break;
-            default :
+            default:
                 break;
-        }
-
-        if (r1 === 'c' && r2 === 'c' && r3 === 'I') {
-            x += 50;
-        }
-
-        if (r1 === 's' && r2 === 's' && r3 === 's') {
-            x -= 20;
-        }
-
-        if (x > 100) {
-            x = 100;
         }
 
         return x;
@@ -173,11 +124,10 @@ export class Display extends Component {
                 let y3 = k.substring(2);
                 let r2 = this.compareNumbers(x2, y2);
                 let r3 = this.compareNumbers(x3, y3);
-                let r4 = this.compareNumbers(x3, y2);
 
                 r[i][j] = {
                     n: `${y1}${y2}${y3}`,
-                    c: `${this.evaluate(r1, r2, r3, r4)}%`
+                    c: `${this.evaluate(r1, r2, r3)}%`
                 }
             }
         }
