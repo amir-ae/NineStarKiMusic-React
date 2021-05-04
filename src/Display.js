@@ -212,13 +212,13 @@ export class Display extends Component {
         } else {
             let numbers = this.format(this.processNumber(this.props.data["number"])).reverse();
             return (
-                <div className="bg-light pl-1">
+                <div className="bg-light">
                     { !this.state.showMusicians ?
                         <NumbersView numbers = { numbers } handleSelect = { this.handleSelect } />
                         :
                         <React.Fragment>
-                            <div style={{ height: this.state.windowHeight-55, overflowX: 'hidden' }}>
-                                <div className={"text-center text-warning p-1 mt-2"}>
+                            <div style={{ height: this.state.windowHeight-65, overflowX: 'hidden' }}>
+                                <div className={"text-center text-warning m-2 p-2"}>
                                     { `${this.state.selectedNumber[0]}.${this.state.selectedNumber[1]}.${this.state.selectedNumber[2]}` }
                                 </div>
                                 <MusicView name="РУССКИЕ МУЗЫКАНТЫ"
@@ -237,7 +237,7 @@ export class Display extends Component {
                                     )
                                 }
                             </div>
-                            <div className="text-center pb-2 m-1">
+                            <div className="text-center m-2 p-1">
                                 <button className={`btn btn-secondary mx-1 px-2`}
                                         onClick={ () => {
                                             this.setState({ showMusicians: false });
