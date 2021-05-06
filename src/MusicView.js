@@ -11,18 +11,18 @@ export class MusicView extends Component {
                         <small className="occasion-header">{ this.props.name }</small>
                     </div>
                     <div className={"row"}>
-                        <div className={"col-7"}>
+                        <div className={"col-7 pr-0"}>
                         <pre>
-                            <span className={"text-primary text-left musician-name"}>
+                            <span className={"text-red text-left musician-name"}>
                                 { this.props.musicians.map( m => <div key={ m.id }>
-                                    { `${m.name}` }
+                                    <small>{ `${m.name}` }</small>
                                 </div>) }
                             </span>
                         </pre>
                         </div>
-                        <div className={"col-5 text-left"}>
+                        <div className={"col-5 pl-1"}>
                         <pre>
-                            <span className={"font-italic text-info musician-data"}>
+                            <span className={"font-italic text-info text-left musician-data"}>
                                 { this.props.musicians.map( m => <div key={ m.id }><small className={"pr-2"}>{ `${this.props.dataToShow(m)}` }</small></div>) }
                             </span>
                         </pre>

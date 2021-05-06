@@ -14,7 +14,7 @@ export class Display extends Component {
             essential: "",
             russian: "",
             dataType: 0,
-            buttonLabel: "Записи",
+            buttonLabel: "Recordings",
             windowHeight: window.innerHeight
         };
         this.classical = React.createRef();
@@ -24,14 +24,14 @@ export class Display extends Component {
         switch (this.state.dataType)
         {
             case 0:
-                this.setState({ dataType: 1, buttonLabel: "Числа" });
+                this.setState({ dataType: 1, buttonLabel: "Numbers" });
                 break;
             case 1:
-                this.setState({ dataType: 2, buttonLabel: "Жанры" });
+                this.setState({ dataType: 2, buttonLabel: "Genres" });
                 break;
             case 2:
             default:
-                this.setState({ dataType: 0, buttonLabel: "Записи" });
+                this.setState({ dataType: 0, buttonLabel: "Recordings" });
                 break;
         }
     };
@@ -207,24 +207,24 @@ export class Display extends Component {
     render() {
         let keys = Object.keys(this.props.data);
         if (keys.length === 0) {
-            return <div className={"h5 bg-light py-2"}>
+            return <div className={"bg-dark"} style={{ height: this.state.windowHeight}}>
             </div>
         } else {
             let numbers = this.format(this.processNumber(this.props.data["number"])).reverse();
             return (
-                <div className="bg-light">
+                <div className={"bg-white"}>
                     { !this.state.showMusicians ?
                         <NumbersView numbers = { numbers } handleSelect = { this.handleSelect } />
                         :
                         <React.Fragment>
                             <div style={{ height: this.state.windowHeight-65, overflowX: 'hidden' }}>
-                                <div className={"text-center text-warning m-2 p-2"}>
+                                <div className={"text-brown text-center m-2 p-2"}>
                                     { `${this.state.selectedNumber[0]}.${this.state.selectedNumber[1]}.${this.state.selectedNumber[2]}` }
                                 </div>
-                                <MusicView name="РУССКИЕ МУЗЫКАНТЫ"
+                                <MusicView name="RUSSIAN MUSICIANS"
                                            musicians={ this.state.russian }
                                            dataToShow={ m => m.city ? m.city : m.country } />
-                                <MusicView name="КЛАССИЧЕСКИЕ КОМПОЗИТОРЫ"
+                                <MusicView name="CLASSIC COMPOSERS"
                                            musicians={ this.state.classical }
                                            dataToShow={ m => m.country } />
                                 {
@@ -243,7 +243,7 @@ export class Display extends Component {
                                             this.setState({ showMusicians: false });
                                             this.props.showEditor(true);
                                         } }>
-                                    Назад
+                                    Back
                                 </button>
                                 <button className={`btn btn-primary mx-1 px-2`}
                                         onClick={ this.handleClick }>

@@ -19,7 +19,7 @@ export class NumbersView extends Component {
                     <div className={"col-10 text-left number"}>
                         <pre>
                             {
-                                this.props.numbers.map( p => <div key={ p.c } className={"text-primary number"}>
+                                this.props.numbers.map( p => <div key={ p.c } className={"text-brown number"}>
                                     { p.n.map( n => <span key={ n } onClick={ () => this.props.handleSelect(n) } className={"number mx-1"}>{ n }</span>)}
                                 </div>)
                             }
@@ -27,7 +27,7 @@ export class NumbersView extends Component {
                     </div>
                 </div>
                 <div className={"text-center pb-2"}>
-                    <small>{ "Нажмите номер для музыки!" }</small>
+                    <small>{ "Click a number for music!" }</small>
                 </div>
             </React.Fragment>
         )

@@ -103,7 +103,7 @@ export class Editor extends Component {
 };
     render() {
         return (
-            this.props.show && <div className={"bg-dark text-white text-center p-4"} /*style={{backgroundColor: "rgb(133, 157, 216)"}}*/>
+            this.props.show && <div className={"bg-black text-white text-center p-4"}>
                 <FormValidator data={ this.state } rules={ this.rules }
                                submit={ this.props.submit }
                                validateForm={ ValidateForm } >
@@ -111,7 +111,7 @@ export class Editor extends Component {
                     <ValidationDisplay field={"form"} />
                     <div className="p-1">
                         <div className="form-group">
-                            <label className={"h6"}>Дата рождения</label>
+                            <label className={"h6"}>Date of Birth</label>
                             <div className="px-5">
                                 <DatePicker
                                     value={ this.state.date }
@@ -119,13 +119,13 @@ export class Editor extends Component {
                                     className={"bg-white text-body"}
                                     calendarClassName={"text-info"}
                                     format={"dd.MM.yyyy"}
-                                    locale="ru"
+                                    locale="en"
                                 />
                             </div>
                         </div>
 
                         <div className="form-group">
-                            <label className={"h6"}>Звезды ки</label>
+                            <label className={"h6"}>Nine Star Ki</label>
                             <div className={"h5 px-5"} ref={ this.props.numberRef }>
                                 {this.getFirstLevelField()}
                                 {this.getSecondLevelField()}

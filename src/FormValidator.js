@@ -65,7 +65,7 @@ export class FormValidator extends Component {
                     <button className={`btn ${ this.getButtonClasses() }`}
                             onClick={ this.handleClick }
                             disabled={ this.state.formSubmitted && !this.formValid } >
-                        Представить
+                        Send
                     </button>
                 </div>
             </React.Fragment>

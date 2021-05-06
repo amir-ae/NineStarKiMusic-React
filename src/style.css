@@ -6,14 +6,32 @@
 
 .occasion-header {
     font-family: Verdana;
+	font-size: x-small;
 }
 
 .musician-name {
     display: block;
-    padding: 3px 10px;
+    padding: 3px 5px;
 }
 
 .musician-data {
     display: block;
-    padding: 3px 0px;
+    padding: 3px 1px;
 }
+
+.bg-black {
+    background-color: black;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.text-brown {
+    color: brown;
+}
+
+.text-red {
+    color: salmon;
+}
+
