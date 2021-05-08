@@ -328,7 +328,7 @@ export const essential = [
     { id: 241, name: "The Byrds", genre: [12, 4], recording: "Mr. Tambourine Man", occasion: [8], numbers: "436, 225, 555, 923, 225, 968, 279, 252" },
     { id: 242, name: "Charlie Christian", genre: [7], recording: "The Genius of the Electric Guitar", occasion: [8], numbers: "398" },
     { id: 243, name: "Guy Clark", genre: [2], recording: "Old No. 1", occasion: [8], numbers: "537" },
-    { id: 244, name: "Crosby", genre: [12], recording: "Stills, Nash, and Young, Déjà vu Rev.", occasion: [8], numbers: "555, 216, 591 & 187" },
+    { id: 244, name: "Crosby, Stills, Nash, and Young", genre: [12], recording: "Déjà vu", occasion: [8], numbers: "555, 216, 591 & 187" },
     { id: 245, name: "Rev. Gary Davis", genre: [0, 5], recording: "Harlem Street Singer", occasion: [8], numbers: "739" },
     { id: 246, name: "Miles Davis", genre: [7], recording: "The Complete In a Silent Way Sessions", occasion: [8], numbers: "288" },
     { id: 247, name: "Sandy Denny", genre: [4], recording: "Sandy", occasion: [8], numbers: "932" },
