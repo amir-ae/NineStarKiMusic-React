@@ -47,9 +47,17 @@ export class Editor extends Component {
         this.setState({
             secondValue: event.target.value,
             date: ''
-        }, () => this.setState({
-            number: `${this.state.firstValue}.${this.state.secondValue}`
-        }));
+        }, () => {
+            if (this.state.secondValue === "") {
+                this.setState({
+                    number: ''
+                });
+            } else {
+                this.setState({
+                    number: `${this.state.firstValue}.${this.state.secondValue}`
+                });
+            }
+        });
     };
 
     getFirstLevelField = () => {
