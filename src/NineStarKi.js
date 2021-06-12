@@ -1,4 +1,5 @@
 import { starMap } from "./stars.js";
+import {starElement} from "./stars";
 
 export function mainPersonality(year)       // Returns Nine Star Ki main personality from year
 {
@@ -72,4 +73,118 @@ export function personality(date)           // Returns Nine Star Ki numbers from
         year--;
 
     return mainPersonality(year).toString() + "." + selfAndChallenge().toString();
+}
+
+export function compareNumbers(a, b)
+{
+    const q = starElement[a] - starElement[b];
+
+    if (a === b)
+        return 'I';
+    else if (q === 0)
+        return 'i';
+    else if (q === 1 || q === -4)
+        return 's';
+    else if (q === -1 || q === 4)
+        return 't';
+    else if (q === -2 || q === 3)
+        return 'd';
+    else if (q === 2 || q === -3)
+        return 'c';
+    else
+        return 'n';
+}
+
+export function evaluate(r1, r2, r3)
+{
+    let x = 0;
+
+    switch (r1)
+    {
+        case 's':
+        case 't':
+            x += 50;
+            break;
+        case 'I':
+        case 'i':
+            x += 30;
+            break;
+        default:
+            break;
+    }
+
+    switch (r2)
+    {
+        case 's':
+        case 't':
+            x += 25;
+            break;
+        case 'I':
+        case 'i':
+            x += 15;
+            break;
+        default:
+            break;
+    }
+
+    switch (r3)
+    {
+        case 's':
+        case 't':
+            x += 25;
+            break;
+        case 'I':
+        case 'i':
+            x += 15;
+            break;
+        default:
+            break;
+    }
+
+    return x;
+}
+
+export function processNumbers(x, y)
+{
+    let x1 = x.substring(0, 1);
+    let x2 = x.substring(2, 3);
+    let x3 = x.substring(4);
+
+    let y1 = y.substring(0, 1);
+    let y2 = y.substring(2, 3);
+    let y3 = y.substring(4);
+
+    let r1 = compareNumbers(x1, y1);
+    let r2 = compareNumbers(x2, y2);
+    let r3 = compareNumbers(x3, y3);
+
+    return evaluate(r1, r2, r3);
+}
+
+export function processNumber(x)
+{
+    let x1 = x.substring(0, 1);
+    let x2 = x.substring(2, 3);
+    let x3 = x.substring(4);
+    let r = new Array(9);
+
+    for ( let i = 0; i < 9; i++) {
+        let y1 = (i + 1).toString();
+        let r1 = compareNumbers(x1, y1);
+        r[i] = new Array(9);
+
+        for (let j = 0; j < 9; j++) {
+            let k = starMap[y1][j];
+            let y2 = k.substring(0, 1);
+            let y3 = k.substring(2);
+            let r2 = compareNumbers(x2, y2);
+            let r3 = compareNumbers(x3, y3);
+
+            r[i][j] = {
+                n: `${y1}${y2}${y3}`,
+                c: `${evaluate(r1, r2, r3)}%`
+            }
+        }
+    }
+    return r;
 }

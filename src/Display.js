@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NumbersView } from "./NumbersView";
 import { MusicView } from "./MusicView";
-import { starMap, starElement } from "./stars.js";
+import { processNumbers, processNumber } from "./NineStarKi.js";
 import { russian, classical, essential, occasions, genres } from "./Musicians";
 
 export class Display extends Component {
@@ -40,100 +40,6 @@ export class Display extends Component {
         .map((e, i, final) => final.indexOf(e) === i && i)
         .filter((e) => arr[e]).map(e => arr[e]);
 
-    compareNumbers = (a, b) => {
-        const q = starElement[a] - starElement[b];
-
-        if (a === b)
-            return 'I';
-        else if (q === 0)
-            return 'i';
-        else if (q === 1 || q === -4)
-            return 's';
-        else if (q === -1 || q === 4)
-            return 't';
-        else if (q === -2 || q === 3)
-            return 'd';
-        else if (q === 2 || q === -3)
-            return 'c';
-        else
-            return 'n';
-    };
-
-    evaluate = (r1, r2, r3) => {
-        let x = 0;
-
-        switch (r1)
-        {
-            case 's':
-            case 't':
-                x += 50;
-                break;
-            case 'I':
-            case 'i':
-                x += 30;
-                break;
-            default:
-                break;
-        }
-
-        switch (r2)
-        {
-            case 's':
-            case 't':
-                x += 25;
-                break;
-            case 'I':
-            case 'i':
-                x += 15;
-                break;
-            default:
-                break;
-        }
-
-        switch (r3)
-        {
-            case 's':
-            case 't':
-                x += 25;
-                break;
-            case 'I':
-            case 'i':
-                x += 15;
-                break;
-            default:
-                break;
-        }
-
-        return x;
-    };
-
-    processNumber = (x) => {
-        let x1 = x.substring(0, 1);
-        let x2 = x.substring(2, 3);
-        let x3 = x.substring(4);
-        let r = new Array(9);
-
-        for ( let i = 0; i < 9; i++) {
-            let y1 = (i + 1).toString();
-            let r1 = this.compareNumbers(x1, y1);
-            r[i] = new Array(9);
-
-            for (let j = 0; j < 9; j++) {
-                let k = starMap[y1][j];
-                let y2 = k.substring(0, 1);
-                let y3 = k.substring(2);
-                let r2 = this.compareNumbers(x2, y2);
-                let r3 = this.compareNumbers(x3, y3);
-
-                r[i][j] = {
-                    n: `${y1}${y2}${y3}`,
-                    c: `${this.evaluate(r1, r2, r3)}%`
-                }
-            }
-        }
-        return r;
-    };
-
     format = ( r ) => {
         let f = [];
         for (let i = 0; i < 9; i++) {
@@ -156,6 +62,59 @@ export class Display extends Component {
         f.forEach(p => p.nl = p.n.join("  "));
 
         return f;
+    };
+
+    handleSuggestion = () => {
+        let allMusicians = [], musicians = [];
+        for (let i = 0; i < occasions.length; i++ ) {
+            musicians[i] = [];
+            allMusicians[i] = essential
+                .filter( a => a.hasOwnProperty('numbers'))
+                .filter( a => a.occasion.includes(i));
+
+            allMusicians[i].forEach(musician => {
+                if (this.check(musician)) {
+                    musicians[i].push(musician);
+                }
+            });
+        }
+
+        this.setState({
+            selectedNumber: null,
+            classical: null,
+            essential: musicians,
+            russian: null,
+            showMusicians: true });
+
+        this.props.showEditor(false);
+    };
+
+    check = (musician) => {
+        if (!musician.hasOwnProperty('numbers') || !musician['numbers'].includes(',')
+            || !musician['numbers'].includes('&') && musician['numbers'].split(",").length - 1 < 2)
+        {
+            return false;
+        }
+
+        let numbers = musician['numbers']
+            .replace(" & ", ", ")
+            .split(", ");
+
+        let result = [];
+
+        numbers.forEach(num =>
+        {
+            if (num.length === 1)
+            {
+                return false;
+            }
+            let personality = `${num[0]}.${num[1]}.${num[2]}`;
+            result.push(processNumbers(this.props.data["number"], personality));
+        });
+
+        const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
+
+        return arrAvg(result) > 50;
     };
 
     handleSelect = (number) => {
@@ -210,23 +169,39 @@ export class Display extends Component {
             return <div className={"bg-dark"} style={{ height: this.state.windowHeight}}>
             </div>
         } else {
-            let numbers = this.format(this.processNumber(this.props.data["number"])).reverse();
+            let numbers = this.format(processNumber(this.props.data["number"])).reverse();
             return (
                 <div className={"bg-white"}>
                     { !this.state.showMusicians ?
-                        <NumbersView numbers = { numbers } handleSelect = { this.handleSelect } />
+                        <React.Fragment>
+                            <NumbersView numbers = { numbers } handleSelect = { this.handleSelect } />
+                            <div className="text-center m-2 p-1">
+                                <button className={`btn btn-primary mx-1 px-2`} onClick={ this.handleSuggestion }>
+                                    Suggestions
+                                </button>
+                            </div>
+                        </React.Fragment>
                         :
                         <React.Fragment>
                             <div style={{ height: this.state.windowHeight-65, overflowX: 'hidden' }}>
-                                <div className={"text-brown text-center m-2 p-2"}>
-                                    { `${this.state.selectedNumber[0]}.${this.state.selectedNumber[1]}.${this.state.selectedNumber[2]}` }
-                                </div>
-                                <MusicView name="RUSSIAN MUSICIANS"
-                                           musicians={ this.state.russian }
-                                           dataToShow={ m => m.city ? m.city : m.country } />
-                                <MusicView name="CLASSIC COMPOSERS"
-                                           musicians={ this.state.classical }
-                                           dataToShow={ m => m.country } />
+                                { this.state.selectedNumber ?
+                                    <div className={"text-brown text-center m-2 p-2"}>
+                                        { `${this.state.selectedNumber[0]}.${this.state.selectedNumber[1]}.${this.state.selectedNumber[2]}` }
+                                    </div>
+                                    :
+                                    <div className={"text-red text-center m-2 p-2"}>
+                                        { `${this.props.data["number"]}` }
+                                    </div>
+                                }
+
+                                { this.state.russian && <MusicView name="RUSSIAN MUSICIANS"
+                                                                   musicians={ this.state.russian }
+                                                                   dataToShow={ m => m.city ? m.city : m.country } />
+                                }
+                                { this.state.classical && <MusicView name="CLASSIC COMPOSERS"
+                                                                     musicians={ this.state.classical }
+                                                                     dataToShow={ m => m.country } />
+                                }
                                 {
                                     occasions.map( (o, i) =>
                                         this.state.essential[i].some(a => a.occasion.includes(i)) &&
