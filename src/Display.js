@@ -90,27 +90,31 @@ export class Display extends Component {
     };
 
     check = (musician) => {
-        if (!musician.hasOwnProperty('numbers') || !musician['numbers'].includes(',')
-            || (!musician['numbers'].includes('&') && musician['numbers'].split(",").length - 1 < 2))
+        if (!musician.hasOwnProperty("numbers") || !musician["numbers"].includes(',')
+            || (!musician["numbers"].includes('&') && musician["numbers"].split(",").length - 1 < 2))
         {
             return false;
         }
 
-        let numbers = musician['numbers']
+        let numbers = musician["numbers"]
             .replace(" & ", ", ")
             .split(", ");
 
         let result = [];
-
+        let full = true;
+        
         numbers.forEach(num =>
         {
             if (num.length === 1)
             {
-                return false;
+                full = false;
             }
             let personality = `${num[0]}.${num[1]}.${num[2]}`;
             result.push(processNumbers(this.props.data["number"], personality));
         });
+        if (full === false) {
+            return false;
+        }
 
         const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
 
