@@ -91,7 +91,7 @@ export class Display extends Component {
 
     check = (musician) => {
         if (!musician.hasOwnProperty('numbers') || !musician['numbers'].includes(',')
-            || !musician['numbers'].includes('&') && musician['numbers'].split(",").length - 1 < 2)
+            || (!musician['numbers'].includes('&') && musician['numbers'].split(",").length - 1 < 2))
         {
             return false;
         }
@@ -189,7 +189,7 @@ export class Display extends Component {
                                         { `${this.state.selectedNumber[0]}.${this.state.selectedNumber[1]}.${this.state.selectedNumber[2]}` }
                                     </div>
                                     :
-                                    <div className={"text-red text-center m-2 p-2"}>
+                                    <div className={"text-danger text-center m-2 p-2"}>
                                         { `${this.props.data["number"]}` }
                                     </div>
                                 }
