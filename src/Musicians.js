@@ -300,7 +300,7 @@ export const essential = [
     { id: 213, name: "Sepultura", genre: [12], recording: "Roots", occasion: [10], numbers: "528, 436, 389, 463, 555, 335, 169" },
     { id: 214, name: "Sleater-Kinney", genre: [12], recording: "Call the Doctor", occasion: [10, 6], numbers: "849, 187, 849" },
     { id: 215, name: "Sly and the Family Stone", genre: [11], recording: "Stand!", occasion: [10], numbers: "344, 885, 335, 418, 986, 721, 178, 591" },
-    { id: 216, name: "Sonic Youth", genre: [12], recording: "Daydream Nation", occasion: [10], numbers: "297, 692, 932, 216" },
+    { id: 216, name: "Sonic Youth", genre: [12], recording: "Daydream Nation", occasion: [10], numbers: "692, 297, 932, 216, 279, 968, 591, 234" },
     { id: 217, name: "Soundgarden", genre: [12], recording: "Superunknown", occasion: [10], numbers: "427, 546, 225, 995, 335, 665" },
     { id: 218, name: "Bruce Springsteen", genre: [12], recording: "Born to Run", occasion: [10], numbers: "674" },
     { id: 219, name: "Karlheinz Stockhausen", genre: [1], recording: "Stimmung Richard Strauss, Also sprach Zarathustra", occasion: [10], numbers: "986 & 142" },
