@@ -90,16 +90,17 @@ export class Display extends Component {
     };
 
     check = (musician) => {
-        if (!musician.hasOwnProperty("numbers") || !musician["numbers"].includes(',')
-            || (!musician["numbers"].includes('&') && musician["numbers"].split(",").length - 1 < 2))
-        {
-            return false;
-        }
-
         let numbers = musician["numbers"]
             .replace(" & ", ", ")
             .split(", ")
             .filter(n => n.length !== 1);
+
+        if (numbers.length < 2)
+        {
+            return false;
+        }
+
+
 
         let result = [];
         
