@@ -109,6 +109,9 @@ export function evaluate(r1, r2, r3)
         case 'i':
             x += 30;
             break;
+        case 'c':
+            x += 10;
+            break;
         default:
             break;
     }
@@ -136,6 +139,9 @@ export function evaluate(r1, r2, r3)
         case 'I':
         case 'i':
             x += 15;
+            break;
+        case 'd':
+            x += 5;
             break;
         default:
             break;

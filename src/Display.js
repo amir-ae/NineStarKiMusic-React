@@ -98,27 +98,28 @@ export class Display extends Component {
 
         let numbers = musician["numbers"]
             .replace(" & ", ", ")
-            .split(", ");
+            .split(", ")
+            .filter(n => n.length !== 1);
 
         let result = [];
-        let full = true;
         
-        numbers.forEach(num =>
+        numbers.forEach((num, i) =>
         {
-            if (num.length === 1)
-            {
-                full = false;
-            }
             let personality = `${num[0]}.${num[1]}.${num[2]}`;
-            result.push(processNumbers(this.props.data["number"], personality));
+            result.push(this.normal(i + 1) * processNumbers(this.props.data["number"], personality));
         });
-        if (full === false) {
-            return false;
-        }
 
-        const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
+        let average = (array) => array.reduce((a, b) => a + b) / array.length;
 
-        return arrAvg(result) > 50;
+        let threshold = result.map((r, i) => 50 * this.normal(i + 1));
+
+        return average(result) > average(threshold);
+    };
+
+    normal = (x) => {
+        let f = 1 / Math.sqrt(2 * Math.PI * 10)
+            * Math.exp(-Math.pow(x, 2) / (2 * 10));
+        return 0.12 + 2.4 * Math.sqrt(f);
     };
 
     handleSelect = (number) => {
