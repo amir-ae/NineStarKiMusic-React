@@ -1,0 +1,35 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": "airbnb",
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@babel"
+    ],
+  "rules": {
+    "indent": [ 2, 4, {"ignoredNodes": ["JSXElement"]}],
+    "react/jsx-indent": [2, 4],
+    "react/jsx-indent-props": [2, 4],
+    "no-plusplus": [ 2, { "allowForLoopAfterthoughts": true } ],
+    "no-param-reassign": [ 2, { "props": false } ],
+    "react/no-unused-state": 0,
+    "react/forbid-prop-types": 0,
+    "no-use-before-define": 0,
+    "no-console": 0
+  }
+}

@@ -1,5 +1,7 @@
-import React from "react";
+import React from 'react';
 
-export const ValidationContext = React.createContext({
-    getMessagesForField: (field) => []
+const ValidationContext = React.createContext({
+    getMessagesForField: () => [],
 });
+
+export default ValidationContext;

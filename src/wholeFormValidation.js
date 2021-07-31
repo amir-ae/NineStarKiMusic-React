@@ -1,4 +1,4 @@
-export function ValidateForm(data) {
-    let errors = [];
+export default function ValidateForm() {
+    const errors = [];
     return errors;
 }
