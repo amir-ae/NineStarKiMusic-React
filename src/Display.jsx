@@ -20,7 +20,10 @@ export default class Display extends Component {
             buttonLabel: 'Recordings',
             windowHeight: window.innerHeight
         };
-        this.classical = React.createRef();
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.handleResize);
     }
 
     componentDidUpdate(prevProps) {
@@ -28,6 +31,14 @@ export default class Display extends Component {
         if (prevProps.data !== data) {
             this.setState({ showMusicians: false });
         }
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    }
+
+    handleResize = () => {
+        this.setState({ windowHeight: window.innerHeight });
     }
 
     handleClick = () => {
