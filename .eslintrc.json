@@ -27,8 +27,9 @@
     "react/jsx-indent-props": [2, 4],
     "no-plusplus": [ 2, { "allowForLoopAfterthoughts": true } ],
     "no-param-reassign": [ 2, { "props": false } ],
-    "react/no-unused-state": 0,
+    "react/jsx-filename-extension": 0,
     "react/forbid-prop-types": 0,
+    "react/no-unused-state": 0,
     "no-use-before-define": 0,
     "no-console": 0
   }
