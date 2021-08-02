@@ -12,32 +12,21 @@ export default class Editor extends Component {
         super(props);
         this.state = {
             date: '',
-            firstValue: '',
-            secondValue: '',
+            firstSelect: '',
+            secondSelect: '',
             number: ''
         };
-
         this.rules = {
             number: { required: true }
         };
     }
 
-    getOptions = (key) => {
-        if (!starMap[key]) {
-            return null;
-        }
-
-        return starMap[key].map(
-            (el) => <option key={el} value={el}>{el}</option>
-        );
-    };
-
     handleFirstLevelChange = (event) => {
         const { clear } = this.props;
         clear();
         this.setState({
-            firstValue: event.target.value,
-            secondValue: '',
+            firstSelect: event.target.value,
+            secondSelect: '',
             date: '',
             number: ''
         });
@@ -47,55 +36,20 @@ export default class Editor extends Component {
         const { clear } = this.props;
         clear();
         this.setState({
-            secondValue: event.target.value,
+            secondSelect: event.target.value,
             date: '',
         }, () => {
-            const { firstValue, secondValue } = this.state;
-            if (secondValue === '') {
+            const { firstSelect, secondSelect } = this.state;
+            if (secondSelect === '') {
                 this.setState({
                     number: ''
                 });
             } else {
                 this.setState({
-                    number: `${firstValue}.${secondValue}`
+                    number: `${firstSelect}.${secondSelect}`
                 });
             }
         });
-    };
-
-    getFirstLevelField = () => {
-        const { firstValue } = this.state;
-        return (
-            <select
-                name="firstSelect"
-                value={firstValue}
-                onChange={this.handleFirstLevelChange}
-                style={{ width: '70px' }}
-            >
-                <option value="">---</option>
-                {
-                    Object.keys(starMap).map(
-                        (el) => <option key={el} value={el}>{el}</option>
-                    )
-                }
-            </select>
-        );
-    };
-
-    getSecondLevelField = () => {
-        const { firstValue, secondValue, date } = this.state;
-        return (
-            <select
-                name="secondSelect"
-                value={secondValue}
-                onChange={this.handleSecondLevelChange}
-                style={{ width: `${date ? 87 : 85}px` }}
-                disabled={!firstValue}
-            >
-                <option value="">---</option>
-                { this.getOptions(firstValue) }
-            </select>
-        );
     };
 
     handleDateChange = (date) => {
@@ -105,27 +59,40 @@ export default class Editor extends Component {
         if (date !== null) {
             this.setState({
                 date,
-                firstValue: '',
-                secondValue: '',
+                firstSelect: '',
+                secondSelect: '',
                 number: personality(date),
             }, () => {
                 this.setState({
-                    firstValue: number.substring(0, 1),
-                    secondValue: number.substring(2)
+                    firstSelect: number.substring(0, 1),
+                    secondSelect: number.substring(2)
                 });
             });
         } else {
             this.setState({
                 date: '',
-                firstValue: '',
-                secondValue: '',
+                firstSelect: '',
+                secondSelect: '',
                 number: ''
             });
         }
     };
 
+    getFirstOptions = () => Object.keys(starMap).map(
+        (el) => <option key={el} value={el}>{el}</option>
+    );
+
+    getSecondOptions = (key) => {
+        if (!starMap[key]) {
+            return null;
+        }
+        return starMap[key].map(
+            (el) => <option key={el} value={el}>{el}</option>
+        );
+    };
+
     render() {
-        const { date } = this.state;
+        const { firstSelect, secondSelect, date } = this.state;
         const { show, submit, numberRef } = this.props;
         return (
             show && (
@@ -154,8 +121,25 @@ export default class Editor extends Component {
                         <div className="form-group">
                             <h6>Nine Star Ki</h6>
                             <div className="h5 px-5" ref={numberRef}>
-                                {this.getFirstLevelField()}
-                                {this.getSecondLevelField()}
+                                <select
+                                    name="firstSelect"
+                                    value={firstSelect}
+                                    onChange={this.handleFirstLevelChange}
+                                    style={{ width: '70px' }}
+                                >
+                                    <option value="">---</option>
+                                    { this.getFirstOptions() }
+                                </select>
+                                <select
+                                    name="secondSelect"
+                                    value={secondSelect}
+                                    onChange={this.handleSecondLevelChange}
+                                    style={{ width: `${date ? 87 : 85}px` }}
+                                    disabled={!firstSelect}
+                                >
+                                    <option value="">---</option>
+                                    { this.getSecondOptions(firstSelect) }
+                                </select>
                             </div>
                         </div>
                     </div>
