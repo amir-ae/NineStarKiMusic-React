@@ -276,7 +276,7 @@ export default class Display extends Component {
 }
 
 Display.propTypes = {
-    data: PropTypes.object.isRequired,
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
     showEditor: PropTypes.func
 };
 

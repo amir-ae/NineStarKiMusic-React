@@ -32,7 +32,7 @@ export default class FormValidator extends Component {
     }
 
     handleChange = (event) => {
-        const { name } = event.target.name;
+        const { name } = event.target;
         this.setState((state) => { state.dirty[name] = true; });
     };
 

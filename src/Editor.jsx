@@ -66,7 +66,12 @@ export default class Editor extends Component {
     getFirstLevelField = () => {
         const { firstValue } = this.state;
         return (
-            <select onChange={this.handleFirstLevelChange} value={firstValue} style={{ width: '70px' }}>
+            <select
+                name="firstSelect"
+                value={firstValue}
+                onChange={this.handleFirstLevelChange}
+                style={{ width: '70px' }}
+            >
                 <option value="">---</option>
                 {
                     Object.keys(starMap).map(
@@ -81,8 +86,9 @@ export default class Editor extends Component {
         const { firstValue, secondValue, date } = this.state;
         return (
             <select
-                onChange={this.handleSecondLevelChange}
+                name="secondSelect"
                 value={secondValue}
+                onChange={this.handleSecondLevelChange}
                 style={{ width: `${date ? 87 : 85}px` }}
                 disabled={!firstValue}
             >
@@ -145,7 +151,6 @@ export default class Editor extends Component {
                                 />
                             </div>
                         </div>
-
                         <div className="form-group">
                             <h6>Nine Star Ki</h6>
                             <div className="h5 px-5" ref={numberRef}>
