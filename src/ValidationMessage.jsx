@@ -18,5 +18,5 @@ export default class ValidationMessage extends Component {
 ValidationMessage.contextType = ValidationContext;
 
 ValidationMessage.propTypes = {
-    field: PropTypes.string.isRequired,
+    field: PropTypes.string.isRequired
 };

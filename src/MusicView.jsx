@@ -39,5 +39,5 @@ export default function MusicView(props) {
 MusicView.propTypes = {
     name: PropTypes.string.isRequired,
     musicians: PropTypes.arrayOf(PropTypes.object).isRequired,
-    dataToShow: PropTypes.func.isRequired,
+    dataToShow: PropTypes.func.isRequired
 };

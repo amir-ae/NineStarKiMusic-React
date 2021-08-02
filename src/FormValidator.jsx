@@ -10,7 +10,7 @@ export default class FormValidator extends Component {
             errors: {},
             dirty: {},
             formSubmitted: false,
-            getMessagesForField: this.getMessagesForField,
+            getMessagesForField: this.getMessagesForField
         };
     }
 
@@ -87,5 +87,9 @@ FormValidator.propTypes = {
     rules: PropTypes.object.isRequired,
     validateForm: PropTypes.func.isRequired,
     submit: PropTypes.func.isRequired,
-    children: PropTypes.array.isRequired,
+    children: PropTypes.array
+};
+
+FormValidator.defaultProps = {
+    children: []
 };

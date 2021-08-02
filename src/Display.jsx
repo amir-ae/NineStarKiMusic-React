@@ -18,7 +18,7 @@ export default class Display extends Component {
             dataType: 0,
             showMusicians: false,
             buttonLabel: 'Recordings',
-            windowHeight: window.innerHeight,
+            windowHeight: window.innerHeight
         };
         this.classical = React.createRef();
     }
@@ -116,7 +116,7 @@ export default class Display extends Component {
             classical: null,
             essential: musicians,
             russian: null,
-            showMusicians: true,
+            showMusicians: true
         });
         const { showEditor } = this.props;
         showEditor(false);
@@ -137,7 +137,7 @@ export default class Display extends Component {
             const personality = `${num[0]}.${num[1]}.${num[2]}`;
             const { data } = this.props;
             result.push(this.normal(i + 1) * processNumbers(
-                data.number, personality,
+                data.number, personality
             ));
         });
 
@@ -170,7 +170,7 @@ export default class Display extends Component {
             classical: classicalMusicians,
             essential: essentialMusicians,
             russian: russianMusicians,
-            showMusicians: true,
+            showMusicians: true
         });
 
         const { showEditor } = this.props;
@@ -276,10 +276,10 @@ export default class Display extends Component {
 }
 
 Display.propTypes = {
-    showEditor: PropTypes.func,
     data: PropTypes.object.isRequired,
+    showEditor: PropTypes.func
 };
 
 Display.defaultProps = {
-    showEditor: true,
+    showEditor: true
 };

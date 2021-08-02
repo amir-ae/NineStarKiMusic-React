@@ -50,5 +50,5 @@ export default function NumbersView(props) {
 
 NumbersView.propTypes = {
     numbers: PropTypes.arrayOf(PropTypes.object).isRequired,
-    handleSelect: PropTypes.func.isRequired,
+    handleSelect: PropTypes.func.isRequired
 };

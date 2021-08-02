@@ -7,7 +7,7 @@ export default class App extends Component {
         super(props);
         this.state = {
             formData: {},
-            showEditor: true,
+            showEditor: true
         };
         this.numberRef = React.createRef();
     }

@@ -195,7 +195,7 @@ export function processNumber(x) {
 
             r[i][j] = {
                 n: `${y1}${y2}${y3}`,
-                c: `${evaluate(r1, r2, r3)}%`,
+                c: `${evaluate(r1, r2, r3)}%`
             };
         }
     }

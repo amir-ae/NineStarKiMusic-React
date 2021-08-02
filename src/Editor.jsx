@@ -14,11 +14,11 @@ export default class Editor extends Component {
             date: '',
             firstValue: '',
             secondValue: '',
-            number: '',
+            number: ''
         };
 
         this.rules = {
-            number: { required: true },
+            number: { required: true }
         };
     }
 
@@ -28,7 +28,7 @@ export default class Editor extends Component {
         }
 
         return starMap[key].map(
-            (el) => <option key={el} value={el}>{el}</option>,
+            (el) => <option key={el} value={el}>{el}</option>
         );
     };
 
@@ -39,7 +39,7 @@ export default class Editor extends Component {
             firstValue: event.target.value,
             secondValue: '',
             date: '',
-            number: '',
+            number: ''
         });
     };
 
@@ -53,11 +53,11 @@ export default class Editor extends Component {
             const { firstValue, secondValue } = this.state;
             if (secondValue === '') {
                 this.setState({
-                    number: '',
+                    number: ''
                 });
             } else {
                 this.setState({
-                    number: `${firstValue}.${secondValue}`,
+                    number: `${firstValue}.${secondValue}`
                 });
             }
         });
@@ -70,7 +70,7 @@ export default class Editor extends Component {
                 <option value="">---</option>
                 {
                     Object.keys(starMap).map(
-                        (el) => <option key={el} value={el}>{el}</option>,
+                        (el) => <option key={el} value={el}>{el}</option>
                     )
                 }
             </select>
@@ -105,7 +105,7 @@ export default class Editor extends Component {
             }, () => {
                 this.setState({
                     firstValue: number.substring(0, 1),
-                    secondValue: number.substring(2),
+                    secondValue: number.substring(2)
                 });
             });
         } else {
@@ -113,7 +113,7 @@ export default class Editor extends Component {
                 date: '',
                 firstValue: '',
                 secondValue: '',
-                number: '',
+                number: ''
             });
         }
     };
@@ -162,8 +162,8 @@ export default class Editor extends Component {
 }
 
 Editor.propTypes = {
+    submit: PropTypes.func.isRequired,
     clear: PropTypes.func.isRequired,
     show: PropTypes.bool.isRequired,
-    submit: PropTypes.func.isRequired,
-    numberRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired,
+    numberRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }).isRequired
 };
