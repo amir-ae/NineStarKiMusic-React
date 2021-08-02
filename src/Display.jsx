@@ -12,9 +12,9 @@ export default class Display extends Component {
         super(props);
         this.state = {
             selectedNumber: '',
+            russian: '',
             classical: '',
             essential: '',
-            russian: '',
             dataType: 0,
             showMusicians: false,
             buttonLabel: 'Recordings',
@@ -26,7 +26,6 @@ export default class Display extends Component {
     componentDidUpdate(prevProps) {
         const { data } = this.props;
         if (prevProps.data !== data) {
-            // eslint-disable-next-line
             this.setState({ showMusicians: false });
         }
     }
@@ -155,11 +154,11 @@ export default class Display extends Component {
     };
 
     handleSelect = (number) => {
-        const classicalMusicians = classicalMusic.filter((m) => m.number === number);
-        const russianMusicians = russianMusic.filter((m) => m.number === number);
-        const essentialMusicians = [];
+        const classical = classicalMusic.filter((m) => m.number === number);
+        const russian = russianMusic.filter((m) => m.number === number);
+        const essential = [];
         for (let i = 0; i < occasions.length; i++) {
-            essentialMusicians[i] = essentialMusic
+            essential[i] = essentialMusic
                 .filter((a) => Object.prototype.hasOwnProperty.call(a, 'numbers')
                     && a.numbers.includes(number))
                 .filter((a) => a.occasion.includes(i));
@@ -167,9 +166,9 @@ export default class Display extends Component {
 
         this.setState({
             selectedNumber: number,
-            classical: classicalMusicians,
-            essential: essentialMusicians,
-            russian: russianMusicians,
+            russian,
+            classical,
+            essential,
             showMusicians: true
         });
 
@@ -190,10 +189,30 @@ export default class Display extends Component {
         }
     };
 
+    titleToShow = () => {
+        const { selectedNumber } = this.state;
+        let color;
+        let number;
+        if (selectedNumber) {
+            number = `${selectedNumber[0]}.${selectedNumber[1]}.${selectedNumber[2]}`;
+            color = 'brown';
+        } else {
+            const { data } = this.props;
+            number = `${data.number}`;
+            color = 'danger';
+        }
+        const theme = `text-${color} text-center m-2 p-2`;
+        return (
+            <div className={theme}>
+                { number }
+            </div>
+        );
+    }
+
     render() {
         const { data, showEditor } = this.props;
         const {
-            windowHeight, selectedNumber, showMusicians, dataType,
+            windowHeight, showMusicians, dataType,
             russian, classical, essential, buttonLabel,
         } = this.state;
         const keys = Object.keys(data);
@@ -215,15 +234,7 @@ export default class Display extends Component {
                 ) : (
                     <>
                         <div style={{ height: windowHeight - 65, overflowX: 'hidden' }}>
-                            { selectedNumber ? (
-                                <div className="text-brown text-center m-2 p-2">
-                                    { `${selectedNumber[0]}.${selectedNumber[1]}.${selectedNumber[2]}` }
-                                </div>
-                            ) : (
-                                <div className="text-danger text-center m-2 p-2">
-                                    { `${data.number}` }
-                                </div>
-                            )}
+                            { this.titleToShow() }
                             { russian && (
                             <MusicView
                                 name="RUSSIAN MUSICIANS"
@@ -239,7 +250,7 @@ export default class Display extends Component {
                             />
                             )}
                             { occasions.map((o, i) => essential[i].some(
-                                (a) => a.occasion.includes(i),
+                                (m) => m.occasion.includes(i),
                             ) && (
                                 <MusicView
                                     name={o.name.toString()}
@@ -251,8 +262,7 @@ export default class Display extends Component {
                         </div>
                         <div className="text-center m-2 p-1">
                             <button
-                                type="button"
-                                className="btn btn-secondary mx-1 px-2"
+                                type="button" className="btn btn-secondary mx-1 px-2"
                                 onClick={() => {
                                     this.setState({ showMusicians: false });
                                     showEditor(true);
@@ -261,8 +271,7 @@ export default class Display extends Component {
                                 Back
                             </button>
                             <button
-                                type="button"
-                                className="btn btn-primary mx-1 px-2"
+                                type="button" className="btn btn-primary mx-1 px-2"
                                 onClick={this.handleClick}
                             >
                                 {buttonLabel}
@@ -277,9 +286,5 @@ export default class Display extends Component {
 
 Display.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
-    showEditor: PropTypes.func
-};
-
-Display.defaultProps = {
-    showEditor: true
+    showEditor: PropTypes.func.isRequired
 };
