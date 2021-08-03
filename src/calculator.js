@@ -1,4 +1,4 @@
-import { starElement, starMap } from './stars';
+import { starElement, starMap } from './constantData';
 
 export function mainPersonality(year) { // Returns Nine Star Ki main personality from year
     let sum = 0;

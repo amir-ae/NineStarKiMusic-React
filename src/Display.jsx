@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import NumbersView from './NumbersView';
 import MusicView from './MusicView';
-import { processNumbers, processNumber } from './NineStarKi';
-import {
-    russianMusic, classicalMusic, essentialMusic, occasions, genres,
-} from './musicians';
+import { occasions, genres, russianMusic, classicalMusic, essentialMusic } from './constantData';
+import { processNumber, processNumbers } from './calculator';
 
 export default class Display extends Component {
     constructor(props) {

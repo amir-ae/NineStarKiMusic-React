@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import FormValidator from './FormValidator';
 import ValidationMessage from './ValidationMessage';
 import ValidateForm from './wholeFormValidation';
-import { starMap } from './stars';
-import { personality } from './NineStarKi';
+import { starMap } from './constantData';
+import { personality } from './calculator';
 
 export default class Editor extends Component {
     constructor(props) {
@@ -20,37 +20,6 @@ export default class Editor extends Component {
             number: { required: true }
         };
     }
-
-    handleFirstLevelChange = (event) => {
-        const { clear } = this.props;
-        clear();
-        this.setState({
-            firstSelect: event.target.value,
-            secondSelect: '',
-            date: '',
-            number: ''
-        });
-    };
-
-    handleSecondLevelChange = (event) => {
-        const { clear } = this.props;
-        clear();
-        this.setState({
-            secondSelect: event.target.value,
-            date: '',
-        }, () => {
-            const { firstSelect, secondSelect } = this.state;
-            if (secondSelect === '') {
-                this.setState({
-                    number: ''
-                });
-            } else {
-                this.setState({
-                    number: `${firstSelect}.${secondSelect}`
-                });
-            }
-        });
-    };
 
     handleDateChange = (date) => {
         const { clear } = this.props;
@@ -76,6 +45,37 @@ export default class Editor extends Component {
                 number: ''
             });
         }
+    };
+
+    handleFirstSelectChange = (event) => {
+        const { clear } = this.props;
+        clear();
+        this.setState({
+            firstSelect: event.target.value,
+            secondSelect: '',
+            date: '',
+            number: ''
+        });
+    };
+
+    handleSecondSelectChange = (event) => {
+        const { clear } = this.props;
+        clear();
+        this.setState({
+            secondSelect: event.target.value,
+            date: '',
+        }, () => {
+            const { firstSelect, secondSelect } = this.state;
+            if (secondSelect === '') {
+                this.setState({
+                    number: ''
+                });
+            } else {
+                this.setState({
+                    number: `${firstSelect}.${secondSelect}`
+                });
+            }
+        });
     };
 
     getFirstOptions = () => Object.keys(starMap).map(
@@ -124,7 +124,7 @@ export default class Editor extends Component {
                                 <select
                                     name="firstSelect"
                                     value={firstSelect}
-                                    onChange={this.handleFirstLevelChange}
+                                    onChange={this.handleFirstSelectChange}
                                     style={{ width: '70px' }}
                                 >
                                     <option value="">---</option>
@@ -133,7 +133,7 @@ export default class Editor extends Component {
                                 <select
                                     name="secondSelect"
                                     value={secondSelect}
-                                    onChange={this.handleSecondLevelChange}
+                                    onChange={this.handleSecondSelectChange}
                                     style={{ width: `${date ? 87 : 85}px` }}
                                     disabled={!firstSelect}
                                 >
