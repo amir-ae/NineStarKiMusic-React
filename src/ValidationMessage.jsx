@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ValidationContext from './ValidationContext';
+import ValidationContext from './validationContext';
 
 export default class ValidationMessage extends Component {
     render() {

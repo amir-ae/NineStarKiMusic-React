@@ -5,7 +5,7 @@ import MusicView from './MusicView';
 import { processNumbers, processNumber } from './NineStarKi';
 import {
     russianMusic, classicalMusic, essentialMusic, occasions, genres,
-} from './Musicians';
+} from './musicians';
 
 export default class Display extends Component {
     constructor(props) {

@@ -53,7 +53,6 @@ export default class Editor extends Component {
     };
 
     handleDateChange = (date) => {
-        const { number } = this.state;
         const { clear } = this.props;
         clear();
         if (date !== null) {
@@ -63,6 +62,7 @@ export default class Editor extends Component {
                 secondSelect: '',
                 number: personality(date),
             }, () => {
+                const { number } = this.state;
                 this.setState({
                     firstSelect: number.substring(0, 1),
                     secondSelect: number.substring(2)

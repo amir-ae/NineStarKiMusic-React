@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ValidationContext from './validationContext';
 import ValidateData from './validation';
-import ValidationContext from './ValidationContext';
 
 export default class FormValidator extends Component {
     constructor(props) {
